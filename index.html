@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pack 57 Flyer — Design Lab</title>
+<style>
+  :root {
+    --redwood: #A04827;
+    --ocean:   #2C5F73;
+    --sun:     #E8A33D;
+    --moss:    #5C6B3E;
+    --cream:   #F2E8D5;
+    --bone:    #FAF6EC;
+    --ink:     #1F1A14;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+  }
+  header {
+    padding: 36px 48px 24px;
+    border-bottom: 2px solid var(--ink);
+    background: var(--bone);
+  }
+  header h1 {
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: -0.03em;
+    font-weight: 900;
+  }
+  header p {
+    margin: 8px 0 0;
+    max-width: 720px;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+  header code {
+    background: var(--ink); color: var(--sun);
+    padding: 1px 6px; border-radius: 2px;
+    font-size: 12px;
+  }
+
+  main {
+    padding: 32px 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 28px;
+  }
+  .card {
+    background: var(--bone);
+    border: 2px solid var(--ink);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .card .head {
+    padding: 16px 18px;
+    background: var(--ink);
+    color: var(--bone);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .card .head .name {
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+  }
+  .card .head .tag {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sun);
+  }
+  .card .preview {
+    aspect-ratio: 8.5 / 11;
+    overflow: hidden;
+    background: #ddd;
+    border-bottom: 2px solid var(--ink);
+  }
+  .card iframe {
+    width: 850px;
+    height: 1100px;
+    transform: scale(0.42);
+    transform-origin: top left;
+    border: 0;
+    pointer-events: none;
+  }
+  .card .body {
+    padding: 16px 18px;
+    flex: 1;
+  }
+  .card .body p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .card .actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .card a.btn {
+    display: inline-block;
+    padding: 10px 14px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    background: var(--bone);
+  }
+  .card a.btn.primary {
+    background: var(--ink);
+    color: var(--sun);
+  }
+  .card a.btn:hover { background: var(--sun); color: var(--ink); }
+
+  footer {
+    padding: 24px 48px 48px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  footer h3 {
+    margin: 18px 0 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  footer code {
+    background: #fff;
+    padding: 2px 5px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Pack 57 — Flyer Design Lab</h1>
+  <p>Three Sea Ranch + Helvetica directions for the
+    <strong>“Adventure Starts Together”</strong> recruitment flyer.
+    Each is a single-page <code>8.5 × 11</code> HTML file. Click
+    <strong>Open</strong> to see it full-size, then
+    <strong>⌘P → Save as PDF</strong> to export.</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <div class="head">
+      <span class="name">A · Supergraphic</span>
+      <span class="tag">Stauffacher / Sea Ranch</span>
+    </div>
+    <div class="preview"><iframe src="variants/a-supergraphic.html"></iframe></div>
+    <div class="body">
+      <p>Big color fields, oversized <strong>57</strong> as supergraphic,
+        skewed cream chevron through the middle. Loud, friendly,
+        unmistakably 60s/70s Sea Ranch.</p>
+      <p><em>Best for:</em> mailers, school-folder handouts, anywhere it
+        needs to grab attention without trying.</p>
+      <div class="actions">
+        <a class="btn primary" href="variants/a-supergraphic.html" target="_blank">Open A</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="head">
+      <span class="name">B · Family Handbook</span>
+      <span class="tag">Onboarding · Swiss Grid</span>
+    </div>
+    <div class="preview"><iframe src="variants/b-swiss-grid.html"></iframe></div>
+    <div class="body">
+      <p>One-page handbook for families who've already decided to join.
+        Year-at-a-glance calendar on the left; pack/den/council breakdown,
+        dues, and what's included on the right.</p>
+      <p><em>Best for:</em> sending after registration, handing out at
+        welcome night, sticking on the fridge.</p>
+      <div class="actions">
+        <a class="btn primary" href="variants/b-swiss-grid.html" target="_blank">Open B</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="head">
+      <span class="name">C · Bold Poster</span>
+      <span class="tag">Bulletin-Board Grabby</span>
+    </div>
+    <div class="preview"><iframe src="variants/c-bold-poster.html"></iframe></div>
+    <div class="body">
+      <p>Stacked horizontal color bands, supersized stacked headline,
+        QR on a sun-yellow pedestal. Designed to be read from
+        across a hallway.</p>
+      <p><em>Best for:</em> school bulletin boards, library posts,
+        coffee-shop windows.</p>
+      <div class="actions">
+        <a class="btn primary" href="variants/c-bold-poster.html" target="_blank">Open C</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <h3>How to print to PDF</h3>
+  <p>Open any variant, hit <code>⌘P</code> (or Ctrl+P), choose
+    <strong>Save as PDF</strong>, set margins to <strong>None</strong>
+    and scale to <strong>100%</strong>. Output is a clean
+    <code>8.5 × 11</code> single page.</p>
+
+  <h3>What to swap before printing</h3>
+  <p>1. Replace <code>assets/qr-placeholder.svg</code> with your real QR PNG/SVG
+       (keep the same filename and the layout stays put).<br>
+     2. Confirm the council name in variant B (currently <em>“Pacific Skyline”</em>).<br>
+     3. Tweak the family-pack quote — it's the same in all three variants
+       and might want your own voice.</p>
+
+  <h3>What changes globally</h3>
+  <p>Edit <code>shared/tokens.css</code> to recolor the whole set at once
+     (all variants pull from the same Sea Ranch palette).</p>
+</footer>
+
+</body>
+</html>

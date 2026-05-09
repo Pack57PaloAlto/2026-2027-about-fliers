@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pack 57 — Welcome to the Pack (Onboarding)</title>
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  /* ============= Variant B: Swiss Grid (Onboarding, 2-page) =============
+     Page 1 — masthead + the Pack Year calendar.
+     Page 2 — program breakdown + fees. */
+
+  /* Print: each .page is a fresh sheet. */
+  @media print {
+    .page + .page { page-break-before: always; }
+  }
+
+  /* Override the shared .page cream/bone with pure white for this onboarding handbook */
+  .page.b { background: #ffffff; }
+
+  .b {
+    background: #ffffff;
+    padding: 0.5in 0.55in 0.45in;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: min-content;
+    gap: 10pt 14pt;
+  }
+
+  /* Header marque */
+  .b .marque {
+    grid-column: 1 / 13;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1pt solid var(--ink);
+    padding-bottom: 6pt;
+    font-size: 8.5pt;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .b .marque .right { color: var(--redwood); }
+
+  /* Hero — onboarding headline */
+  .b .hero {
+    grid-column: 1 / 11;
+    margin-top: 10pt;
+  }
+  .b .hero .num {
+    font-size: 9pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ocean);
+    margin-bottom: 8pt;
+  }
+  .b .hero h1 {
+    font-size: 36pt;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 900;
+    margin: 0;
+    color: var(--ink);
+  }
+  .b .hero h1 em {
+    font-style: normal;
+    color: var(--redwood);
+  }
+  .b .hero .sub {
+    margin-top: 8pt;
+    font-size: 10pt;
+    line-height: 1.45;
+    max-width: 5.2in;
+    color: var(--ink);
+  }
+
+  /* Pack 57 logo, top right */
+  .b .logo {
+    grid-column: 11 / 13;
+    margin-top: 4pt;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .b .logo img {
+    width: 1.25in;
+    height: auto;
+  }
+
+  /* Section header */
+  .b h2 {
+    font-size: 9pt;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0 0 8pt;
+    border-top: 2pt solid var(--ink);
+    padding-top: 6pt;
+  }
+
+  /* ===== Calendar (page 1, full width) ===== */
+  .b .cal {
+    grid-column: 1 / 13;
+    margin-top: 12pt;
+  }
+  .b .cal h2 .yr { color: var(--ocean); margin-left: 4pt; }
+
+  /* Fall | Spring as two side-by-side columns. */
+  .b .cal .seasons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24pt;
+    position: relative;
+  }
+  .b .cal .seasons::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 0;
+    border-left: 0.75pt solid var(--ink);
+  }
+  .b .cal .season-head {
+    font-size: 11pt;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--rust);
+    margin: 0 0 8pt;
+    padding-bottom: 6pt;
+    border-bottom: 2pt solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .b .cal .season-head .span {
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .b .cal .season.spring .season-head { color: var(--moss); }
+
+  /* Months stacked vertically inside each season column. */
+  .b .cal .month {
+    padding: 5pt 0 7pt;
+    border-bottom: 0.5pt dotted var(--ink);
+  }
+  .b .cal .month:last-child { border-bottom: none; }
+  .b .cal .m {
+    font-size: 9pt;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: var(--ink);
+    margin: 0 0 4pt;
+  }
+  .b .cal ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 8.5pt;
+    line-height: 1.25;
+  }
+  .b .cal li {
+    display: grid;
+    grid-template-columns: 1.1in 1fr;
+    gap: 10pt;
+    padding: 2.5pt 0;
+  }
+  .b .cal li .d {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--redwood);
+    font-size: 7.5pt;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+  }
+  .b .cal li.flag .d { color: var(--moss); }
+  .b .cal li em {
+    font-style: italic;
+    color: var(--rust);
+    font-weight: 700;
+  }
+  .b .cal li em.paid { font-weight: 400; color: var(--ink); opacity: 0.6; }
+  .b .cal li .note {
+    font-size: 7pt;
+    color: var(--rust);
+    font-style: italic;
+    display: block;
+    margin-top: 1pt;
+  }
+
+  /* ===== Page 2: program breakdown + fees ===== */
+  .b .p2-hero {
+    grid-column: 1 / 11;
+    margin-top: 10pt;
+  }
+  .b .p2-logo {
+    grid-column: 11 / 13;
+    margin-top: 4pt;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .b .p2-logo img { width: 1in; height: auto; }
+  .b .p2-hero h1 {
+    font-size: 36pt;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-weight: 900;
+    margin: 0;
+    color: var(--ink);
+  }
+  .b .p2-hero h1 em { font-style: normal; color: var(--redwood); }
+  .b .p2-hero .num {
+    font-size: 9pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ocean);
+    margin-bottom: 8pt;
+  }
+
+  /* Why-Cub-Scouts label — section header above the three columns */
+  .b .why-label {
+    grid-column: 1 / 13;
+    margin-top: 10pt;
+    font-size: 14pt;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--ink);
+    border-top: 2pt solid var(--ink);
+    padding-top: 5pt;
+  }
+
+  /* Why-Cub-Scouts row — three blurbs across full width */
+  .b .why {
+    grid-column: 1 / 13;
+    margin-top: 2pt;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24pt;
+  }
+  .b .why .why-item h3 {
+    font-size: 12pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0 0 5pt;
+    padding-top: 2pt;
+  }
+  .b .why .why-item:nth-child(1) h3 { color: var(--rust); }
+  .b .why .why-item:nth-child(2) h3 { color: var(--moss); }
+  .b .why .why-item:nth-child(3) h3 { color: var(--ocean); }
+  .b .why .why-item p {
+    font-size: 10pt;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .b .why .why-item p em {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* Reference panels — two columns, each a vertical stack */
+  .b .panels {
+    grid-column: 1 / 13;
+    margin-top: 10pt;
+    display: grid;
+    grid-template-columns: 1.9fr 1fr;
+    column-gap: 32pt;
+  }
+  .b .panel-col-left,
+  .b .panel-col-right {
+    display: flex;
+    flex-direction: column;
+  }
+  .b .panel-col-left .panel + .panel,
+  .b .panel-col-right .panel + .panel {
+    margin-top: 18pt;
+  }
+  .b .panel h2 {
+    font-size: 9pt;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0 0 10pt;
+    border-top: 2pt solid var(--ink);
+    padding-top: 6pt;
+  }
+
+  /* Panel: dens by grade — compact emoji list */
+  .b .panel .dens {
+    display: grid;
+    grid-template-columns: 0.22in 0.32in 1fr;
+    gap: 4pt 8pt;
+    font-size: 9.5pt;
+    line-height: 1.25;
+    align-items: baseline;
+  }
+  .b .panel .dens .emoji {
+    font-size: 10pt;
+    line-height: 1;
+  }
+  .b .panel .dens .grade {
+    font-weight: 900;
+    color: var(--ocean);
+    font-variant-numeric: tabular-nums;
+    font-size: 9pt;
+    letter-spacing: 0.06em;
+  }
+  .b .panel .dens .den-name {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Panel: leadership — parallel to org */
+  .b .panel .lead-row {
+    display: grid;
+    grid-template-columns: 1.05in minmax(0, 3in);
+    gap: 18pt;
+    padding: 7pt 0;
+    border-bottom: 0.5pt dotted var(--ink);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .b .panel .lead-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .b .panel .lead-row:first-of-type { padding-top: 0; }
+  .b .panel .lead-row .role {
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 9.5pt;
+  }
+  .b .panel .lead-row.l1 .role { color: var(--rust); }
+  .b .panel .lead-row.l2 .role { color: var(--moss); }
+  .b .panel .lead-row.l3 .role { color: var(--ocean); }
+
+  /* Panel: org explainer (Den/Pack/Council) */
+  .b .panel .org-row {
+    display: grid;
+    grid-template-columns: 1.05in minmax(0, 3in);
+    gap: 18pt;
+    padding: 7pt 0;
+    border-bottom: 0.5pt dotted var(--ink);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .b .panel .org-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .b .panel .org-row:first-of-type { padding-top: 0; }
+  .b .panel .org-row .term {
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .b .panel .org-row.r1 .term { color: var(--ocean); }
+  .b .panel .org-row.r2 .term { color: var(--redwood); }
+  .b .panel .org-row.r3 .term { color: var(--moss); }
+
+  /* Panel: what we ask, what makes us different */
+  .b .panel .ask p,
+  .b .panel .different p {
+    font-size: 10pt;
+    line-height: 1.5;
+    margin: 0 0 8pt;
+  }
+  .b .panel .ask p:last-child,
+  .b .panel .different p:last-child { margin-bottom: 0; }
+  .b .panel .ask p em,
+  .b .panel .different p em { font-style: italic; }
+  .b .panel .different p b { font-weight: 700; }
+
+  /* Panel: dues table */
+  .b .panel table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+  }
+  .b .panel table td {
+    padding: 5pt 0;
+    border-bottom: 0.5pt dotted var(--ink);
+  }
+  .b .panel table td.r {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+  }
+  .b .panel table tr.opt td {
+    color: var(--rust);
+    font-style: italic;
+  }
+  .b .panel table tr.tot td {
+    border-top: 1.5pt solid var(--ink);
+    border-bottom: none;
+    padding-top: 6pt;
+    font-weight: 900;
+    font-size: 11pt;
+    text-transform: uppercase;
+  }
+  .b .panel .scholar-note {
+    font-size: 8.5pt;
+    margin-top: 6pt;
+    color: var(--rust);
+    line-height: 1.4;
+  }
+
+  /* Footer */
+  .b .foot {
+    grid-column: 1 / 13;
+    margin-top: 14pt;
+    border-top: 1pt solid var(--ink);
+    padding-top: 6pt;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .b .foot .mid { color: var(--ocean); }
+</style>
+</head>
+<body>
+
+<!-- =============================================================
+     PAGE 1 — masthead + Pack Year calendar
+     ============================================================= -->
+<div class="page b">
+
+  <div class="marque">
+    <span>Cub Scouts · Pack 57 · Palo Alto</span>
+    <span class="right">2026 — 27</span>
+  </div>
+
+  <div class="hero">
+    <h1>Adventure starts<br><em>together.</em></h1>
+  </div>
+
+  <div class="logo">
+    <img src="../assets/pack57-logo-mono.png" alt="Cub Scouts Pack 57 Palo Alto">
+  </div>
+
+  <div class="cal">
+    <div class="seasons">
+
+      <!-- ===== FALL ===== -->
+      <div class="season fall">
+        <div class="season-head"><span>Fall '26</span><span class="span">Sep — Dec</span></div>
+
+        <div class="month">
+          <div class="m">September</div>
+          <ul>
+            <li class="flag"><span class="d">Thu 10<br>6:30—8pm</span><span><em>Pack Kickoff &amp; Registration Night</em> · Addison Elementary</span></li>
+            <li><span class="d">Thu 17<br>week of</span><span>Den Meetings Begin · times vary by den</span></li>
+            <li><span class="d">Sun 20<br>all day</span><span>Arrowpalooza (Webelos &amp; Arrow of Light) · Coyote Point, San Mateo</span></li>
+            <li><span class="d">Sat 26<br>TBD</span><span>Stanford Football Day · Stanford Stadium · <em class="paid">tickets not included in dues</em></span></li>
+          </ul>
+        </div>
+
+        <div class="month">
+          <div class="m">October</div>
+          <ul>
+            <li><span class="d">Thu 8<br>6:30—8pm</span><span>October Pack Meeting · Addison Elementary</span></li>
+            <li><span class="d">Fri 9<br>—Sun 11</span><span>Cub-On Weekend #1 (Council) · Boulder Creek Scout Reservation</span></li>
+            <li class="flag"><span class="d">Fri 16<br>—Sun 18</span><span><em>Fall Camping Trip (2 nights)</em> · Portola Redwoods State Park</span></li>
+            <li><span class="d">Fri 23<br>—Sun 25</span><span>Cub-On Weekend #2 (Council) · Boulder Creek Scout Reservation</span></li>
+            <li><span class="d">Fri 30<br>all day</span><span>Jack-O-Lantern Jamboree (Lions &amp; Tigers) · PA Service Center</span></li>
+          </ul>
+        </div>
+
+        <div class="month">
+          <div class="m">November</div>
+          <ul>
+            <li><span class="d">Thu 12<br>6:30—8pm</span><span>November Pack Meeting · Addison Elementary</span></li>
+            <li><span class="d">Sat 14<br>all day</span><span>Scouting for Food — Collection Day · Foster City Service Center</span></li>
+          </ul>
+        </div>
+
+        <div class="month">
+          <div class="m">December</div>
+          <ul>
+            <li><span class="d">Sat 5<br>all day</span><span>Winter Family Fun Fest · PA Service Center</span></li>
+            <li><span class="d">Thu 10<br>6:30—8pm</span><span>December Pack Meeting · Holiday Celebration / Potluck · Addison Elementary</span></li>
+            <li><span class="d">Sat 12<br>10am—12pm</span><span>Pinewood Derby Build Session #1</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ===== SPRING (Jan—May) ===== -->
+      <div class="season spring">
+        <div class="season-head"><span>Spring '27</span><span class="span">Jan — May</span></div>
+
+        <div class="month">
+          <div class="m">January</div>
+          <ul>
+            <li><span class="d">Sat 9<br>all day</span><span>Pinewood Derby Workshop (Council) · PA Service Center</span></li>
+            <li><span class="d">Thu 14<br>6:30—8pm</span><span>January Pack Meeting · Addison Elementary</span></li>
+            <li><span class="d">Sat 16<br>10am—2pm</span><span>Museum Trip · PA Junior Museum &amp; Zoo · <em class="paid">tickets not included in dues</em></span></li>
+            <li><span class="d">Sat 23<br>all day</span><span>Pinewood Derby Champ Camp (Council) · Foster City Service Center</span></li>
+            <li class="flag"><span class="d">TBD</span><span><em>USS Hornet Overnight</em> · Alameda · <em class="paid">tickets not included in dues</em></span></li>
+          </ul>
+        </div>
+
+        <div class="month">
+          <div class="m">February</div>
+          <ul>
+            <li><span class="d">Sat 6<br>10am—12pm</span><span>Pinewood Derby Build Session #2</span></li>
+            <li><span class="d">Thu 11<br>6:30—8pm</span><span>February Pack Meeting · Addison Elementary</span></li>
+            <li class="flag"><span class="d">Sat 27<br>9am—12pm</span><span><em>Pinewood Derby</em> · Lucie Stern Community Center</span></li>
+          </ul>
+        </div>
+
+        <div class="month">
+          <div class="m">March</div>
+          <ul>
+            <li class="flag"><span class="d">Thu 11<br>6—7:30pm</span><span><em>Blue &amp; Gold Banquet</em> + March Pack Meeting · Addison Elementary</span></li>
+          </ul>
+        </div>
+
+        <div class="month">
+          <div class="m">April</div>
+          <ul>
+            <li><span class="d">Thu 15<br>6:30—8pm</span><span>April Pack Meeting · Addison Elementary</span></li>
+            <li class="flag"><span class="d">Sat 17<br>—Sun 18</span><span><em>Spring Camping Trip</em></span></li>
+            <li><span class="d">Sat 24<br>all day</span><span>Council Pinewood Derby · Hillsdale Shopping Center, San Mateo</span></li>
+          </ul>
+        </div>
+
+        <div class="month">
+          <div class="m">May</div>
+          <ul>
+            <li class="flag"><span class="d">Thu 13<br>6:30—8pm</span><span><em>Final Pack Meeting</em> · Water Rocket Academy · Addison Elementary</span></li>
+            <li><span class="d">Fri 21<br>—Sun 23</span><span>Cub-On Weekend (Council) · Boulder Creek Scout Reservation</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- =============================================================
+     PAGE 2 — program breakdown + fees (rough draft)
+     ============================================================= -->
+<div class="page b">
+
+  <div class="marque">
+    <span>Pack 57 · Palo Alto · Family Handbook</span>
+    <span class="right">How the Program Works</span>
+  </div>
+
+  <div class="p2-hero">
+    <h1>Adventure starts<br><em>together.</em></h1>
+  </div>
+
+  <div class="p2-logo">
+    <img src="../assets/cub-scout-logo.png" alt="Cub Scouts">
+  </div>
+
+  <div class="why-label">Why Cub Scouts</div>
+
+  <div class="why">
+    <div class="why-item">
+      <h3>Character</h3>
+      <p>Scouts grow up <em>trustworthy, kind, helpful, brave.</em>
+        A three-year Tufts study proved it.</p>
+    </div>
+    <div class="why-item">
+      <h3>Outdoors</h3>
+      <p>Hike. Camp. Build. Explore. <em>Real adventure</em>,
+        every month of the year.</p>
+    </div>
+    <div class="why-item">
+      <h3>Family</h3>
+      <p>You and your scout. Together. <em>Lifelong memories.</em></p>
+    </div>
+  </div>
+
+  <div class="panels">
+
+    <div class="panel-col-left">
+      <div class="panel">
+        <h2>How Scouting Works</h2>
+        <div class="org-row r1">
+          <div class="term">Den</div>
+          <div>Your scout's grade group, led by a den leader.
+            Dens meet once or twice a month and earn rank together.</div>
+        </div>
+        <div class="org-row r2">
+          <div class="term">Pack</div>
+          <div><b>Pack 57</b> — all six dens, here in Palo Alto.
+            Monthly pack meetings, campouts, pinewood derby,
+            and blue &amp; gold.</div>
+        </div>
+        <div class="org-row r3">
+          <div class="term">Council</div>
+          <div><b>Pacific Skyline Council</b> supports packs across
+            the peninsula — training leaders, running camps,
+            handling registration.</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Our Pack Leadership</h2>
+        <div class="lead-row l1">
+          <div class="role">Cubmaster</div>
+          <div>Runs the pack. Leads pack meetings,
+            sets the year's direction.</div>
+        </div>
+        <div class="lead-row l2">
+          <div class="role">Den Leaders</div>
+          <div>One or two parents per den. Plan weekly
+            meetings, guide rank advancement.</div>
+        </div>
+        <div class="lead-row l3">
+          <div class="role">Committee</div>
+          <div>Treasurer, registrar, event chairs —
+            parents who keep the pack running.</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>What makes Pack 57 different</h2>
+        <div class="different">
+          <p><b>Pack 57 is chartered by its own parents.</b>
+            We build it, run it, and hand it down. That's why
+            we're <em>one of the longest-running packs in the
+            nation.</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-col-right">
+      <div class="panel">
+        <h2>What we ask of you</h2>
+        <div class="ask">
+          <p>Pack 57 is a <em>family pack</em>. Every family
+            pitches in — drive to a campout, lead a den meeting,
+            run a station at the derby, cook a meal at blue
+            &amp; gold.</p>
+          <p>The more you bring, the more your scout gets
+            back.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>What it costs</h2>
+        <table>
+          <tr><td>National &amp; Council registration</td><td class="r">$170</td></tr>
+          <tr><td>Pack 57 annual dues</td><td class="r">$170</td></tr>
+          <tr class="opt"><td>Scout Life magazine (optional)</td><td class="r">+$15</td></tr>
+          <tr><td>Uniform (shirt, neckerchief, handbook)</td><td class="r">~$80</td></tr>
+        </table>
+        <div class="scholar-note">Scholarships may be available —
+          please ask.</div>
+      </div>
+
+      <div class="panel">
+        <h2>The Dens</h2>
+        <div class="dens">
+          <div class="emoji">🦁</div><div class="grade">K</div><div class="den-name">Lions</div>
+          <div class="emoji">🐯</div><div class="grade">1</div><div class="den-name">Tigers</div>
+          <div class="emoji">🐺</div><div class="grade">2</div><div class="den-name">Wolves</div>
+          <div class="emoji">🐻</div><div class="grade">3</div><div class="den-name">Bears</div>
+          <div class="emoji">🪶</div><div class="grade">4</div><div class="den-name">Webelos</div>
+          <div class="emoji">🏹</div><div class="grade">5</div><div class="den-name">Arrow of Light</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    <span>pack57paloalto.com</span>
+    <span class="mid">Questions? cubmaster@pack57paloalto.com</span>
+    <span>Pay dues by Sep 30</span>
+  </div>
+
+</div>
+
+</body>
+</html>

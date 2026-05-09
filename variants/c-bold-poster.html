@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pack 57 — Adventure Starts Together (Bold Poster)</title>
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  /* ============= Variant C: Bold Poster =============
+     Tall, high-contrast, bulletin-board grabby.
+     Stacked horizontal bands of color. Helvetica.
+     Made to be readable from across a hallway. */
+
+  .c {
+    background: var(--bone);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top: redwood band w/ vertical "57" tab */
+  .c .band1 {
+    background: var(--redwood);
+    color: var(--bone);
+    height: 1.4in;
+    display: flex;
+    align-items: stretch;
+    flex: 0 0 auto;
+  }
+  .c .tab {
+    background: var(--ink);
+    color: var(--sun);
+    width: 1.4in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64pt;
+    font-weight: 900;
+    letter-spacing: -0.06em;
+  }
+  .c .band1 .meta {
+    flex: 1;
+    padding: 14pt 0.4in;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .c .band1 .eyebrow {
+    font-size: 9pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.85;
+  }
+  .c .band1 h1 {
+    font-size: 30pt;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    margin: 4pt 0 0;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  /* The hero — supersized type */
+  .c .hero {
+    background: var(--cream);
+    padding: 0.45in 0.5in 0.4in;
+    flex: 0 0 auto;
+    border-bottom: 6pt solid var(--ink);
+  }
+  .c .hero .stack {
+    font-size: 88pt;
+    font-weight: 900;
+    line-height: 0.86;
+    letter-spacing: -0.05em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .c .hero .stack .l2 { color: var(--ocean); }
+  .c .hero .stack .l3 { color: var(--redwood); }
+  .c .hero .lede {
+    margin-top: 14pt;
+    font-size: 13pt;
+    line-height: 1.35;
+    max-width: 6.5in;
+    font-weight: 400;
+  }
+  .c .hero .lede strong { background: var(--sun); padding: 0 4pt; }
+
+  /* Middle: definitions on ocean band */
+  .c .band-mid {
+    background: var(--ocean);
+    color: var(--bone);
+    padding: 18pt 0.5in;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18pt;
+    flex: 0 0 auto;
+  }
+  .c .band-mid h3 {
+    font-size: 9pt;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--sun);
+    margin: 0 0 6pt;
+    border-bottom: 1pt solid var(--bone);
+    padding-bottom: 4pt;
+  }
+  .c .band-mid p {
+    font-size: 10.5pt;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  /* Bottom: fees + family + QR */
+  .c .bottom {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 1fr;
+    grid-template-rows: 1fr;
+    background: var(--bone);
+  }
+
+  .c .fees {
+    padding: 18pt 18pt 18pt 0.5in;
+    border-right: 1pt solid var(--ink);
+  }
+  .c .fees h3, .c .family h3, .c .qr h3 {
+    font-size: 10pt;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin: 0 0 10pt;
+    color: var(--ink);
+  }
+  .c .fees .line {
+    display: flex;
+    justify-content: space-between;
+    padding: 4pt 0;
+    border-bottom: 1pt dotted var(--ink);
+    font-size: 10pt;
+  }
+  .c .fees .line .lbl { font-weight: 700; }
+  .c .fees .line.opt { color: var(--rust); font-style: italic; }
+  .c .fees .total {
+    margin-top: 8pt;
+    padding: 8pt 10pt;
+    background: var(--ink); color: var(--sun);
+    display: flex; justify-content: space-between;
+    font-size: 14pt; font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .c .fees .schol {
+    margin-top: 8pt;
+    font-size: 8.5pt;
+    color: var(--rust);
+    line-height: 1.4;
+  }
+
+  .c .family {
+    padding: 18pt;
+    background: var(--moss);
+    color: var(--bone);
+  }
+  .c .family h3 { color: var(--sun); }
+  .c .family p {
+    font-size: 10.5pt;
+    line-height: 1.4;
+    margin: 0 0 8pt;
+  }
+  .c .family .quote {
+    border-left: 3pt solid var(--sun);
+    padding-left: 8pt;
+    font-style: italic;
+    font-size: 10pt;
+    margin-top: 10pt;
+  }
+
+  .c .qr {
+    padding: 18pt 0.5in 18pt 18pt;
+    text-align: center;
+    background: var(--sun);
+  }
+  .c .qr img {
+    width: 1.85in; height: 1.85in;
+    border: 4pt solid var(--ink);
+    background: var(--bone);
+  }
+  .c .qr .label {
+    font-size: 11pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-top: 10pt;
+  }
+  .c .qr .url {
+    font-size: 11pt;
+    color: var(--rust);
+    font-weight: 900;
+    margin-top: 4pt;
+  }
+  .c .qr .step {
+    font-size: 8.5pt;
+    margin-top: 8pt;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  /* Foot rule */
+  .c .footrule {
+    background: var(--ink); color: var(--bone);
+    padding: 8pt 0.5in;
+    font-size: 9pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: flex; justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div class="page c">
+
+  <div class="band1">
+    <div class="tab">57</div>
+    <div class="meta">
+      <div class="eyebrow">Pack 57 · Palo Alto · Cub Scouts · 2026 — 27</div>
+      <h1>Now Recruiting K — 5</h1>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="stack">
+      Adventure<br>
+      <span class="l2">Starts</span><br>
+      <span class="l3">Together.</span>
+    </div>
+    <p class="lede">
+      Pack 57 is a <strong>family</strong> Cub Scout pack. We hike, build,
+      camp, and earn — alongside our kids, not from the sidelines.
+    </p>
+  </div>
+
+  <div class="band-mid">
+    <div>
+      <h3>What is a Pack?</h3>
+      <p>A <em>pack</em> is the local Cub Scout unit — that's us, Pack 57.
+        Inside the pack, scouts are grouped by grade into <em>dens</em>
+        that meet through the school year for adventure and rank-earning.</p>
+    </div>
+    <div>
+      <h3>What is a Council?</h3>
+      <p>A <em>council</em> is the regional Scouting America organization
+        that supports many packs at once — training leaders, running
+        summer camps, and keeping the program safe and consistent.</p>
+    </div>
+  </div>
+
+  <div class="bottom">
+
+    <div class="fees">
+      <h3>What it costs</h3>
+      <div class="line"><span class="lbl">National + Council</span><span>$170</span></div>
+      <div class="line"><span class="lbl">Pack 57 dues</span><span>$170</span></div>
+      <div class="line opt"><span class="lbl">Scout Life mag.</span><span>+$15</span></div>
+      <div class="line"><span class="lbl">Uniform</span><span>varies</span></div>
+      <div class="total"><span>Starting</span><span>$340</span></div>
+      <div class="schol">Scholarships available — no scout is turned away for cost. Just ask.</div>
+    </div>
+
+    <div class="family">
+      <h3>A family pack</h3>
+      <p>Every family pitches in. Drive a carpool, cook breakfast at a
+        campout, lead a den meeting, run a derby station.</p>
+      <div class="quote">“We get so few years with our kids — we'd rather
+        spend them together, on the trail, than on the sidelines.”</div>
+    </div>
+
+    <div class="qr">
+      <h3 style="text-align:center;">Register</h3>
+      <img src="../assets/qr-placeholder.svg" alt="QR code">
+      <div class="label">Scan to Join</div>
+      <div class="url">pack57paloalto.com</div>
+      <div class="step">1. Scan or visit the link.<br>
+        2. Fill the family info form.<br>
+        3. Pay dues at the link inside.</div>
+    </div>
+
+  </div>
+
+  <div class="footrule">
+    <span>Pack 57 · Palo Alto</span>
+    <span>pack57paloalto.com</span>
+    <span>Scouting America</span>
+  </div>
+
+</div>
+</body>
+</html>

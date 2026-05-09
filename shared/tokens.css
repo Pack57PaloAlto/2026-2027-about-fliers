@@ -1,0 +1,48 @@
+/* Sea Ranch palette — earthy, sun-bleached, mid-century coastal */
+:root {
+  --redwood: #A04827;     /* siding stain */
+  --ocean:   #2C5F73;     /* deep pacific */
+  --sun:     #E8A33D;     /* afternoon light */
+  --moss:    #5C6B3E;     /* trail green */
+  --cream:   #F2E8D5;     /* weathered cedar */
+  --bone:    #FAF6EC;     /* page */
+  --ink:     #1F1A14;     /* near-black, warm */
+  --rust:    #7A2E1A;     /* deep accent */
+
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Print sizing — letter, single sided */
+@page { size: 8.5in 11in; margin: 0; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: #d8d4c8;     /* gray surround so the page edge is visible on screen */
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  width: 8.5in;
+  height: 11in;
+  background: var(--bone);
+  margin: 24px auto;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  box-sizing: border-box;
+}
+
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; }
+}
+
+/* Common type rules */
+.tight  { letter-spacing: -0.02em; }
+.tighter{ letter-spacing: -0.04em; }
+.upper  { text-transform: uppercase; }
+.bold   { font-weight: 700; }
+.black  { font-weight: 900; }
