@@ -44,8 +44,34 @@
 
   /* Hero — onboarding headline */
   .b .hero {
-    grid-column: 1 / 11;
+    grid-column: 1 / 9;
     margin-top: 10pt;
+  }
+
+  /* QR code — between hero and logo, nudged slightly left toward hero */
+  .b .qr {
+    grid-column: 9 / 11;
+    margin-top: 14pt;
+    margin-left: -33pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .b .qr img {
+    width: 0.85in;
+    height: 0.85in;
+    display: block;
+  }
+  .b .qr .qr-cap {
+    margin-top: 4pt;
+    font-size: 7pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.2;
   }
   .b .hero .num {
     font-size: 9pt;
@@ -195,8 +221,32 @@
 
   /* ===== Page 2: program breakdown + fees ===== */
   .b .p2-hero {
-    grid-column: 1 / 11;
+    grid-column: 1 / 9;
     margin-top: 10pt;
+  }
+  .b .p2-qr {
+    grid-column: 9 / 11;
+    margin-top: 14pt;
+    margin-left: -33pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .b .p2-qr img {
+    width: 0.85in;
+    height: 0.85in;
+    display: block;
+  }
+  .b .p2-qr .qr-cap {
+    margin-top: 4pt;
+    font-size: 7pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.2;
   }
   .b .p2-logo {
     grid-column: 11 / 13;
@@ -441,6 +491,11 @@
     <h1>Adventure starts<br><em>together.</em></h1>
   </div>
 
+  <div class="qr">
+    <img src="../assets/qr-pack57-join.png" alt="Scan to join Pack 57">
+    <div class="qr-cap">Scan to Join</div>
+  </div>
+
   <div class="logo">
     <img src="../assets/pack57-logo-mono.png" alt="Cub Scouts Pack 57 Palo Alto">
   </div>
@@ -551,12 +606,17 @@
 <div class="page b">
 
   <div class="marque">
-    <span>Pack 57 · Palo Alto · Family Handbook</span>
-    <span class="right">How the Program Works</span>
+    <span>Cub Scouts · Pack 57 · Palo Alto</span>
+    <span class="right">2026 — 27</span>
   </div>
 
   <div class="p2-hero">
     <h1>Adventure starts<br><em>together.</em></h1>
+  </div>
+
+  <div class="p2-qr">
+    <img src="../assets/qr-pack57-join.png" alt="Scan to join Pack 57">
+    <div class="qr-cap">Scan to Join</div>
   </div>
 
   <div class="p2-logo">
