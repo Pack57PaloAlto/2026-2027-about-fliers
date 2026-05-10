@@ -152,7 +152,7 @@
     letter-spacing: 0.28em;
     text-transform: uppercase;
     font-weight: 900;
-    color: var(--rust);
+    color: var(--ink);
     margin: 0 0 8pt;
     padding-bottom: 6pt;
     border-bottom: 2pt solid var(--ink);
@@ -166,7 +166,6 @@
     color: var(--ink);
     font-weight: 700;
   }
-  .b .cal .season.spring .season-head { color: var(--moss); }
 
   /* Months stacked vertically inside each season column. */
   .b .cal .month {
@@ -204,6 +203,7 @@
     line-height: 1.25;
     letter-spacing: 0.02em;
   }
+  .b .cal li.dropin .d { color: var(--moss); }
   .b .cal li.council .d { color: var(--ocean); }
   .b .cal li em {
     font-style: italic;
@@ -246,6 +246,7 @@
     border-radius: 1pt;
   }
   .b .cal .key .swatch.regular { background: var(--redwood); }
+  .b .cal .key .swatch.dropin { background: var(--moss); }
   .b .cal .key .swatch.council { background: var(--ocean); }
   .b .cal .key .opt {
     font-style: italic;
@@ -579,7 +580,7 @@
           <ul>
             <li class="council"><span class="d">Sat 5<br>all day</span><span>Winter Family Fun Fest · PA Service Center</span></li>
             <li><span class="d">Thu 10<br>6:30—8pm</span><span>December Pack Meeting · Holiday Celebration / Potluck · Addison Elementary</span></li>
-            <li><span class="d">Sat 12<br>10am—12pm</span><span>Pinewood Derby Build Session #1</span></li>
+            <li class="dropin"><span class="d">Sat 12<br>10am—12pm</span><span>Pinewood Derby Build Session #1</span></li>
           </ul>
         </div>
       </div>
@@ -602,7 +603,7 @@
         <div class="month">
           <div class="m">February</div>
           <ul>
-            <li><span class="d">Sat 6<br>10am—12pm</span><span>Pinewood Derby Build Session #2</span></li>
+            <li class="dropin"><span class="d">Sat 6<br>10am—12pm</span><span>Pinewood Derby Build Session #2</span></li>
             <li><span class="d">Thu 11<br>6:30—8pm</span><span>February Pack Meeting · Addison Elementary</span></li>
             <li class="flag"><span class="d">Sat 27<br>9am—12pm</span><span><em>Pinewood Derby</em> · Lucie Stern Community Center</span></li>
           </ul>
@@ -639,6 +640,10 @@
       <div class="item">
         <span class="swatch regular"></span>
         <span>Pack event</span>
+      </div>
+      <div class="item">
+        <span class="swatch dropin"></span>
+        <span>Drop-in</span>
       </div>
       <div class="item">
         <span class="swatch council"></span>
