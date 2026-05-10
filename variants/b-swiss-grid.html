@@ -219,6 +219,36 @@
     margin-top: 1pt;
   }
 
+  /* Stacked calendar sections — Pack on top, Council on bottom */
+  .b .cal .cal-section {
+    margin-top: 16pt;
+  }
+  .b .cal .cal-section:first-child {
+    margin-top: 0;
+  }
+  .b .cal .cal-section-head {
+    font-size: 9pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: var(--ink);
+    margin: 0 0 8pt;
+    padding-bottom: 5pt;
+    border-bottom: 1pt solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .b .cal .cal-section-head .opt {
+    font-size: 8pt;
+    letter-spacing: 0.06em;
+    font-weight: 400;
+    font-style: italic;
+    text-transform: none;
+    opacity: 0.7;
+    color: var(--ink);
+  }
+
   /* Calendar legend — sits under the seasons grid */
   .b .cal .key {
     grid-column: 1 / 13;
@@ -540,100 +570,173 @@
   </div>
 
   <div class="cal">
-    <div class="seasons">
 
-      <!-- ===== FALL ===== -->
-      <div class="season fall">
-        <div class="season-head"><span>Fall '26</span><span class="span">Sep — Dec</span></div>
-
-        <div class="month">
-          <div class="m">September</div>
-          <ul>
-            <li class="flag"><span class="d">Thu 10<br>6:30—8pm</span><span><em>Pack Kickoff &amp; Registration Night</em> · Addison Elementary</span></li>
-            <li><span class="d">Thu 17<br>week of</span><span>Den Meetings Begin · times vary by den</span></li>
-            <li class="council"><span class="d">Sun 20<br>all day</span><span>Arrowpalooza (Webelos &amp; Arrow of Light) · Coyote Point, San Mateo</span></li>
-            <li><span class="d">Sat 26<br>TBD</span><span>Stanford Football Day · Stanford Stadium · <em class="paid">tickets not included in dues</em></span></li>
-          </ul>
-        </div>
-
-        <div class="month">
-          <div class="m">October</div>
-          <ul>
-            <li><span class="d">Thu 8<br>6:30—8pm</span><span>October Pack Meeting · Addison Elementary</span></li>
-            <li class="council"><span class="d">Fri 9<br>—Sun 11</span><span>Cub-On Weekend #1 (Council) · Boulder Creek Scout Reservation</span></li>
-            <li class="flag"><span class="d">Fri 16<br>—Sun 18</span><span><em>Fall Camping Trip (2 nights)</em> · Portola Redwoods State Park</span></li>
-            <li class="council"><span class="d">Fri 23<br>—Sun 25</span><span>Cub-On Weekend #2 (Council) · Boulder Creek Scout Reservation</span></li>
-            <li class="council"><span class="d">Fri 30<br>all day</span><span>Jack-O-Lantern Jamboree (Lions &amp; Tigers) · PA Service Center</span></li>
-          </ul>
-        </div>
-
-        <div class="month">
-          <div class="m">November</div>
-          <ul>
-            <li><span class="d">Thu 12<br>6:30—8pm</span><span>November Pack Meeting · Addison Elementary</span></li>
-            <li class="council"><span class="d">Sat 14<br>all day</span><span>Scouting for Food — Collection Day · Foster City Service Center</span></li>
-          </ul>
-        </div>
-
-        <div class="month">
-          <div class="m">December</div>
-          <ul>
-            <li class="council"><span class="d">Sat 5<br>all day</span><span>Winter Family Fun Fest · PA Service Center</span></li>
-            <li><span class="d">Thu 10<br>6:30—8pm</span><span>December Pack Meeting · Holiday Celebration / Potluck · Addison Elementary</span></li>
-            <li class="dropin"><span class="d">Sat 12<br>10am—12pm</span><span>Pinewood Derby Build Session #1</span></li>
-          </ul>
-        </div>
+    <!-- ===== PACK CALENDAR (top) ===== -->
+    <div class="cal-section">
+      <div class="cal-section-head">
+        <span>Pack 57 Calendar</span>
+        <span class="opt">events run by our pack</span>
       </div>
 
-      <!-- ===== SPRING (Jan—May) ===== -->
-      <div class="season spring">
-        <div class="season-head"><span>Spring '27</span><span class="span">Jan — May</span></div>
+      <div class="seasons">
 
-        <div class="month">
-          <div class="m">January</div>
-          <ul>
-            <li class="council"><span class="d">Sat 9<br>all day</span><span>Pinewood Derby Workshop (Council) · PA Service Center</span></li>
-            <li><span class="d">Thu 14<br>6:30—8pm</span><span>January Pack Meeting · Addison Elementary</span></li>
-            <li><span class="d">Sat 16<br>10am—2pm</span><span>Museum Trip · PA Junior Museum &amp; Zoo · <em class="paid">tickets not included in dues</em></span></li>
-            <li class="council"><span class="d">Sat 23<br>all day</span><span>Pinewood Derby Champ Camp (Council) · Foster City Service Center</span></li>
-            <li class="council"><span class="d">TBD</span><span><em>USS Hornet Overnight</em> · Alameda · <em class="paid">tickets not included in dues</em></span></li>
-          </ul>
+        <!-- ===== PACK / FALL ===== -->
+        <div class="season fall">
+          <div class="season-head"><span>Fall '26</span><span class="span">Sep — Dec</span></div>
+
+          <div class="month">
+            <div class="m">September</div>
+            <ul>
+              <li class="flag"><span class="d">Thu 10<br>6:30—8pm</span><span><em>Pack Kickoff &amp; Registration Night</em> · Addison Elementary</span></li>
+              <li><span class="d">Thu 17<br>week of</span><span>Den Meetings Begin · times vary by den</span></li>
+              <li><span class="d">Sat 26<br>TBD</span><span>Stanford Football Day · Stanford Stadium · <em class="paid">tickets not included in dues</em></span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">October</div>
+            <ul>
+              <li><span class="d">Thu 8<br>6:30—8pm</span><span>October Pack Meeting · Addison Elementary</span></li>
+              <li class="flag"><span class="d">Fri 16<br>—Sun 18</span><span><em>Fall Camping Trip (2 nights)</em> · Portola Redwoods State Park</span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">November</div>
+            <ul>
+              <li><span class="d">Thu 12<br>6:30—8pm</span><span>November Pack Meeting · Addison Elementary</span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">December</div>
+            <ul>
+              <li><span class="d">Thu 10<br>6:30—8pm</span><span>December Pack Meeting · Holiday Celebration / Potluck · Addison Elementary</span></li>
+              <li class="dropin"><span class="d">Sat 12<br>10am—12pm</span><span>Pinewood Derby Build Session #1</span></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="month">
-          <div class="m">February</div>
-          <ul>
-            <li class="dropin"><span class="d">Sat 6<br>10am—12pm</span><span>Pinewood Derby Build Session #2</span></li>
-            <li><span class="d">Thu 11<br>6:30—8pm</span><span>February Pack Meeting · Addison Elementary</span></li>
-            <li class="flag"><span class="d">Sat 27<br>9am—12pm</span><span><em>Pinewood Derby</em> · Lucie Stern Community Center</span></li>
-          </ul>
+        <!-- ===== PACK / SPRING ===== -->
+        <div class="season spring">
+          <div class="season-head"><span>Spring '27</span><span class="span">Jan — May</span></div>
+
+          <div class="month">
+            <div class="m">January</div>
+            <ul>
+              <li><span class="d">Thu 14<br>6:30—8pm</span><span>January Pack Meeting · Addison Elementary</span></li>
+              <li><span class="d">Sat 16<br>10am—2pm</span><span>Museum Trip · PA Junior Museum &amp; Zoo · <em class="paid">tickets not included in dues</em></span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">February</div>
+            <ul>
+              <li class="dropin"><span class="d">Sat 6<br>10am—12pm</span><span>Pinewood Derby Build Session #2</span></li>
+              <li><span class="d">Thu 11<br>6:30—8pm</span><span>February Pack Meeting · Addison Elementary</span></li>
+              <li class="flag"><span class="d">Sat 27<br>9am—12pm</span><span><em>Pinewood Derby</em> · Lucie Stern Community Center</span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">March</div>
+            <ul>
+              <li class="flag"><span class="d">Thu 11<br>6—7:30pm</span><span><em>Blue &amp; Gold Banquet</em> + March Pack Meeting · Addison Elementary</span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">April</div>
+            <ul>
+              <li><span class="d">Thu 15<br>6:30—8pm</span><span>April Pack Meeting · Addison Elementary</span></li>
+              <li class="flag"><span class="d">Fri 16<br>—Sun 18</span><span><em>Spring Camping Trip (2 nights)</em></span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">May</div>
+            <ul>
+              <li class="flag"><span class="d">Thu 13<br>6:30—8pm</span><span><em>Final Pack Meeting</em> · Water Rocket Academy · Addison Elementary</span></li>
+            </ul>
+          </div>
         </div>
 
-        <div class="month">
-          <div class="m">March</div>
-          <ul>
-            <li class="flag"><span class="d">Thu 11<br>6—7:30pm</span><span><em>Blue &amp; Gold Banquet</em> + March Pack Meeting · Addison Elementary</span></li>
-          </ul>
-        </div>
+      </div>
+    </div>
 
-        <div class="month">
-          <div class="m">April</div>
-          <ul>
-            <li><span class="d">Thu 15<br>6:30—8pm</span><span>April Pack Meeting · Addison Elementary</span></li>
-            <li class="flag"><span class="d">Fri 16<br>—Sun 18</span><span><em>Spring Camping Trip (2 nights)</em></span></li>
-            <li class="council"><span class="d">Sat 24<br>all day</span><span>Council Pinewood Derby · Hillsdale Shopping Center, San Mateo</span></li>
-          </ul>
-        </div>
-
-        <div class="month">
-          <div class="m">May</div>
-          <ul>
-            <li class="flag"><span class="d">Thu 13<br>6:30—8pm</span><span><em>Final Pack Meeting</em> · Water Rocket Academy · Addison Elementary</span></li>
-            <li class="council"><span class="d">Fri 21<br>—Sun 23</span><span>Cub-On Weekend (Council) · Boulder Creek Scout Reservation</span></li>
-          </ul>
-        </div>
+    <!-- ===== COUNCIL CALENDAR (bottom) ===== -->
+    <div class="cal-section">
+      <div class="cal-section-head">
+        <span>Council Calendar</span>
+        <span class="opt">all optional · Pacific Skyline Council</span>
       </div>
 
+      <div class="seasons">
+
+        <!-- ===== COUNCIL / FALL ===== -->
+        <div class="season fall">
+          <div class="season-head"><span>Fall '26</span><span class="span">Sep — Dec</span></div>
+
+          <div class="month">
+            <div class="m">September</div>
+            <ul>
+              <li class="council"><span class="d">Sun 20<br>all day</span><span>Arrowpalooza (Webelos &amp; Arrow of Light) · Coyote Point, San Mateo</span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">October</div>
+            <ul>
+              <li class="council"><span class="d">Fri 9<br>—Sun 11</span><span>Cub-On Weekend #1 · Boulder Creek Scout Reservation</span></li>
+              <li class="council"><span class="d">Fri 23<br>—Sun 25</span><span>Cub-On Weekend #2 · Boulder Creek Scout Reservation</span></li>
+              <li class="council"><span class="d">Fri 30<br>all day</span><span>Jack-O-Lantern Jamboree (Lions &amp; Tigers) · PA Service Center</span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">November</div>
+            <ul>
+              <li class="council"><span class="d">Sat 14<br>all day</span><span>Scouting for Food — Collection Day · Foster City Service Center</span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">December</div>
+            <ul>
+              <li class="council"><span class="d">Sat 5<br>all day</span><span>Winter Family Fun Fest · PA Service Center</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ===== COUNCIL / SPRING ===== -->
+        <div class="season spring">
+          <div class="season-head"><span>Spring '27</span><span class="span">Jan — May</span></div>
+
+          <div class="month">
+            <div class="m">January</div>
+            <ul>
+              <li class="council"><span class="d">Sat 9<br>all day</span><span>Pinewood Derby Workshop · PA Service Center</span></li>
+              <li class="council"><span class="d">Sat 23<br>all day</span><span>Pinewood Derby Champ Camp · Foster City Service Center</span></li>
+              <li class="council"><span class="d">TBD</span><span><em>USS Hornet Overnight</em> · Alameda · <em class="paid">tickets not included in dues</em></span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">April</div>
+            <ul>
+              <li class="council"><span class="d">Sat 24<br>all day</span><span>Council Pinewood Derby · Hillsdale Shopping Center, San Mateo</span></li>
+            </ul>
+          </div>
+
+          <div class="month">
+            <div class="m">May</div>
+            <ul>
+              <li class="council"><span class="d">Fri 21<br>—Sun 23</span><span>Cub-On Weekend · Boulder Creek Scout Reservation</span></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
     </div>
 
     <div class="key">
