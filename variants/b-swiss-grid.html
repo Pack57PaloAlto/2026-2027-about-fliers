@@ -205,6 +205,24 @@
   }
   .b .cal li.dropin .d { color: var(--moss); }
   .b .cal li.council .d { color: var(--ocean); }
+
+  /* Council redwood mark — small ocean conifer silhouette after each council event title */
+  .b .cal li.council span:nth-of-type(2)::after {
+    content: "";
+    display: inline-block;
+    width: 5pt;
+    height: 8pt;
+    margin-left: 5pt;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 16'><path d='M5 0 L8 4 L6.5 4 L9 8 L7 8 L10 13 L5.7 13 L5.7 16 L4.3 16 L4.3 13 L0 13 L3 8 L1 8 L3.5 4 L2 4 Z' fill='%232C5F73'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: relative;
+    top: 1pt;
+    vertical-align: middle;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
   .b .cal li em {
     font-style: italic;
     color: var(--rust);
@@ -247,7 +265,18 @@
   }
   .b .cal .key .swatch.regular { background: var(--redwood); }
   .b .cal .key .swatch.dropin { background: var(--moss); }
-  .b .cal .key .swatch.council { background: var(--ocean); }
+  .b .cal .key .swatch.council {
+    background-color: transparent;
+    width: 6pt;
+    height: 9pt;
+    border-radius: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 16'><path d='M5 0 L8 4 L6.5 4 L9 8 L7 8 L10 13 L5.7 13 L5.7 16 L4.3 16 L4.3 13 L0 13 L3 8 L1 8 L3.5 4 L2 4 Z' fill='%232C5F73'/></svg>");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
   .b .cal .key .opt {
     font-style: italic;
     text-transform: none;
@@ -578,7 +607,7 @@
         <div class="month">
           <div class="m">December</div>
           <ul>
-            <li class="council"><span class="d">Sat 5<br>all day</span><span>Winter Family Fun Fest · PA Service Center</span></li>
+            <li class="council"><span class="d">Sat 5<br>all day</span><span>Winter Family Fun Fest · Palo Alto</span></li>
             <li><span class="d">Thu 10<br>6:30—8pm</span><span>December Pack Meeting · Holiday Celebration / Potluck · Addison Elementary</span></li>
             <li class="dropin"><span class="d">Sat 12<br>10am—12pm</span><span>Pinewood Derby Build Session #1</span></li>
           </ul>
