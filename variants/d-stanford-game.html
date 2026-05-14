@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pack 57 — Stanford Football Day (Half-Sheet, 2-up)</title>
+<link rel="stylesheet" href="../shared/tokens.css">
+<style>
+  /* ============= Variant D: Stanford Football Day =============
+     8.5 × 11 sheet, two identical half-sheets stacked.
+     Cut horizontally through the middle = two 8.5 × 5.5 handouts.
+     Swiss grid + Sea Ranch supergraphic sun (Stauffacher motif). */
+
+  /* The whole page is the print sheet. We don't want the shared
+     .page styling cropping us — override it for this variant. */
+  .sheet {
+    width: 8.5in;
+    height: 11in;
+    background: #ffffff;
+    margin: 24px auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media print {
+    body { background: white; }
+    .sheet { margin: 0; box-shadow: none; }
+  }
+
+  /* Cut guide — sits between the two halves. Ultra-faint dashed rule
+     so a slightly-off cut still looks clean. No label, no tick marks. */
+  .cut {
+    position: relative;
+    height: 0;
+    border-top: 0.25pt dashed #e8e8e8;
+    margin: 0;
+    z-index: 5;
+  }
+
+  /* ============= A single half-sheet ============= */
+  .half {
+    width: 8.5in;
+    height: 5.5in;
+    box-sizing: border-box;
+    padding: 0.45in 0.5in 0.34in;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: min-content;
+    column-gap: 14pt;
+    row-gap: 8pt;
+  }
+
+  /* Sea Ranch supergraphic — rising sun in upper-right corner.
+     Quarter-circle bleeds off top + right edges. */
+  .half .sun {
+    position: absolute;
+    top: -2.6in;
+    right: -2.6in;
+    width: 5.4in;
+    height: 5.4in;
+    border-radius: 50%;
+    background: var(--sun);
+    z-index: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Everything except the sun stacks above it */
+  .half > *:not(.sun) { position: relative; z-index: 1; }
+
+  /* Pack 57 logo, sitting in front of the sun */
+  .half .logo {
+    grid-column: 11 / 13;
+    grid-row: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .half .logo img {
+    width: 0.95in;
+    height: auto;
+    /* mono logo on the sun — keep it ink-on-yellow */
+  }
+
+  /* ===== Hero — eyebrow + headline + sub ===== */
+  .half .hero {
+    grid-column: 1 / 9;
+    grid-row: 1;
+  }
+  .half .hero .eyebrow {
+    font-size: 9pt;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ocean);
+    margin-bottom: 6pt;
+  }
+  .half .hero .eyebrow .dot {
+    color: var(--ink);
+    opacity: 0.4;
+    margin: 0 7pt;
+  }
+  .half .hero h1 {
+    font-size: 44pt;
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    font-weight: 900;
+    margin: 0;
+    color: var(--ink);
+  }
+  .half .hero h1 em {
+    font-style: normal;
+    color: var(--redwood);
+  }
+  .half .hero .sub {
+    margin-top: 8pt;
+    font-size: 10pt;
+    line-height: 1.45;
+    max-width: 4.6in;
+    color: var(--ink);
+  }
+  .half .hero .sub b { font-weight: 700; }
+  .half .hero .invite {
+    margin-top: 6pt;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    max-width: 4.6in;
+    color: var(--rust);
+    font-style: italic;
+  }
+
+  /* ===== Right rail: QR + scan caption, sits below the logo,
+     in front of the sun ===== */
+  .half .qr {
+    grid-column: 10 / 13;
+    grid-row: 1;
+    margin-top: 1.05in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .half .qr .qr-box {
+    background: #fff;
+    padding: 6pt;
+    border: 1pt solid var(--ink);
+    box-shadow: 4pt 4pt 0 var(--ink);
+  }
+  .half .qr img {
+    width: 1.15in;
+    height: 1.15in;
+    display: block;
+  }
+  .half .qr .qr-cap {
+    margin-top: 7pt;
+    font-size: 7.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.25;
+  }
+  .half .qr .qr-cap .price {
+    display: block;
+    color: var(--redwood);
+    font-size: 11pt;
+    letter-spacing: 0.04em;
+    margin-top: 2pt;
+  }
+  .half .qr .qr-note {
+    margin-top: 5pt;
+    font-size: 6.5pt;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-weight: 400;
+    color: var(--ink);
+    opacity: 0.75;
+    text-align: center;
+    line-height: 1.35;
+    max-width: 1.35in;
+    font-style: italic;
+  }
+  .half .qr .qr-note .star {
+    color: var(--rust);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  /* ===== Details strip — bottom, full width ===== */
+  .half .details {
+    grid-column: 1 / 10;
+    margin-top: 14pt;
+    border-top: 1.5pt solid var(--ink);
+    padding-top: 8pt;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 14pt;
+  }
+  .half .details .d-item .lbl {
+    font-size: 7.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ocean);
+    margin-bottom: 3pt;
+  }
+  .half .details .d-item .val {
+    font-size: 10pt;
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .half .details .d-item .val em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+
+  /* ===== Foot ===== */
+  .half .foot {
+    grid-column: 1 / 13;
+    margin-top: auto;
+    position: absolute;
+    left: 0.5in;
+    right: 0.5in;
+    bottom: 0.28in;
+    border-top: 0.5pt solid var(--ink);
+    padding-top: 5pt;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 7.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .half .foot .mid { color: var(--redwood); }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- ============= TOP HALF ============= -->
+  <div class="half">
+
+    <div class="sun"></div>
+
+    <div class="logo">
+      <img src="../assets/pack57-logo-mono.png" alt="Cub Scouts Pack 57 Palo Alto">
+    </div>
+
+    <div class="hero">
+      <div class="eyebrow">
+        Stanford vs Georgia Tech <span class="dot">·</span> Sat · Sep 26
+      </div>
+      <h1>Join us<br>at the <em>game.</em></h1>
+      <p class="sub">Stanford football, with Pack 57. Bring your
+        family. Bring a friend. Bring a friend's family.
+        <b>Pack membership not required.</b></p>
+    </div>
+
+    <div class="qr">
+      <div class="qr-box">
+        <img src="../assets/qr-stanford-pay.png" alt="Scan to reserve tickets">
+      </div>
+      <div class="qr-cap">
+        Group rate
+        <span class="price">$22 / ticket<span class="star">*</span></span>
+      </div>
+      <div class="qr-note">
+        <span class="star">*</span> $0.65 processing fee at checkout.
+        Prefer cash or check? That works too.
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="d-item">
+        <div class="lbl">Kickoff</div>
+        <div class="val">TBD<br><em>announced ~Sep&nbsp;15</em></div>
+      </div>
+      <div class="d-item">
+        <div class="lbl">Meet-up</div>
+        <div class="val">Stanford Stadium</div>
+      </div>
+      <div class="d-item">
+        <div class="lbl">Tickets</div>
+        <div class="val">$22 each</div>
+      </div>
+      <div class="d-item">
+        <div class="lbl">Availability</div>
+        <div class="val">First come,<br>first serve</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>pack57paloalto.com</span>
+      <span class="mid">Questions? cubmaster@pack57paloalto.com</span>
+    </div>
+
+  </div>
+
+  <!-- ============= CUT GUIDE ============= -->
+  <div class="cut"></div>
+
+  <!-- ============= BOTTOM HALF (identical) ============= -->
+  <div class="half">
+
+    <div class="sun"></div>
+
+    <div class="logo">
+      <img src="../assets/pack57-logo-mono.png" alt="Cub Scouts Pack 57 Palo Alto">
+    </div>
+
+    <div class="hero">
+      <div class="eyebrow">
+        Stanford vs Georgia Tech <span class="dot">·</span> Sat · Sep 26
+      </div>
+      <h1>Join us<br>at the <em>game.</em></h1>
+      <p class="sub">Stanford football, with Pack 57. Bring your
+        family. Bring a friend. Bring a friend's family.
+        <b>Pack membership not required.</b></p>
+    </div>
+
+    <div class="qr">
+      <div class="qr-box">
+        <img src="../assets/qr-stanford-pay.png" alt="Scan to reserve tickets">
+      </div>
+      <div class="qr-cap">
+        Group rate
+        <span class="price">$22 / ticket<span class="star">*</span></span>
+      </div>
+      <div class="qr-note">
+        <span class="star">*</span> $0.65 processing fee at checkout.
+        Prefer cash or check? That works too.
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="d-item">
+        <div class="lbl">Kickoff</div>
+        <div class="val">TBD<br><em>announced ~Sep&nbsp;15</em></div>
+      </div>
+      <div class="d-item">
+        <div class="lbl">Meet-up</div>
+        <div class="val">Stanford Stadium</div>
+      </div>
+      <div class="d-item">
+        <div class="lbl">Tickets</div>
+        <div class="val">$22 each</div>
+      </div>
+      <div class="d-item">
+        <div class="lbl">Availability</div>
+        <div class="val">First come,<br>first serve</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>pack57paloalto.com</span>
+      <span class="mid">Questions? cubmaster@pack57paloalto.com</span>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
