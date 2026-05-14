@@ -40,6 +40,9 @@
     z-index: 5;
   }
 
+  /* Flip the top half 180° so the yellow suns don't share the cut line. */
+  .half.flip { transform: rotate(180deg); }
+
   /* ============= A single half-sheet ============= */
   .half {
     width: 8.5in;
@@ -249,8 +252,8 @@
 
 <div class="sheet">
 
-  <!-- ============= TOP HALF ============= -->
-  <div class="half">
+  <!-- ============= TOP HALF (rotated 180°) ============= -->
+  <div class="half flip">
 
     <div class="sun"></div>
 
